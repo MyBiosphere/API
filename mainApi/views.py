@@ -30,6 +30,7 @@ class PlantViewSet(viewsets.ModelViewSet):
         # retrieve user plant lit
         else:
             self.queryset.filter(user=self.request.user.id)
+        # return result
         return self.queryset
 
 
