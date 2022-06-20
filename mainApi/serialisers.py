@@ -10,7 +10,7 @@ from .models import SensorsBox
 class PlantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Plant
-        fields = ['id', 'name', 'description', 'user']
+        fields = ['id', 'name', 'description', 'user', 'room']
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
