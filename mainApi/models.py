@@ -36,6 +36,7 @@ class Plant(models.Model):
         null=True,
         on_delete=models.SET_NULL
     )
+    room = models.CharField(max_length=120, blank=True, null=True)
     watering = models.IntegerField(blank=True, null=True)
     sunshine = models.IntegerField(blank=True, null=True)
     repot = models.IntegerField(blank=True, null=True)
