@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 
 
 class Sickness(models.Model):
@@ -45,6 +46,24 @@ class Plant(models.Model):
         return self.name
 
 
+class SensorsBox(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    boxNumber = models.IntegerField(blank=True, null=True)
+
+
+class HouseMetrics(models.Model):
+    box = models.ForeignKey(
+        SensorsBox,
+        on_delete=models.CASCADE
+    )
+    co2 = models.IntegerField(blank=True, null=True)
+    temperature = models.IntegerField(blank=True, null=True)
+    humidity = models.IntegerField(blank=True, null=True)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=254)
@@ -55,6 +74,8 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+        token = Token.objects.create(user=instance)
+        print(token.key)
 
 
 @receiver(post_save, sender=User)

@@ -16,8 +16,15 @@ from .models import Profile
 from .serialisers import UserSerializer
 from .models import User
 
+from .serialisers import MetricsSerializer
+from .models import HouseMetrics
+
+from .serialisers import SensorsBoxSerializer
+from .models import SensorsBox
+
 
 class PlantViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
     queryset = Plant.objects.all()
     serializer_class = PlantSerializer
@@ -26,12 +33,12 @@ class PlantViewSet(viewsets.ModelViewSet):
         plant_id = self.request.query_params.get('plant_id')
         # get specific plant
         if plant_id:
-            self.queryset.filter(id=plant_id)
+            res = self.queryset.filter(id=plant_id)
         # retrieve user plant lit
         else:
-            self.queryset.filter(user=self.request.user.id)
+            res = self.queryset.filter(user=self.request.user)
         # return result
-        return self.queryset
+        return res
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
@@ -42,3 +49,13 @@ class ProfileViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('username')
     serializer_class = UserSerializer
+
+
+class MetricsViewSet(viewsets.ModelViewSet):
+    queryset = HouseMetrics.objects.all()
+    serializer_class = MetricsSerializer
+
+
+class SensorBoxViewSet(viewsets.ModelViewSet):
+    queryset = SensorsBox.objects.all()
+    serializer_class = SensorsBoxSerializer

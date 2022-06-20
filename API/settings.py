@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-dsip9vy4x1#5^qot82fk+@bh9tgnyi*uhax6u^e&o72%o0&6b(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'my-biosphere.herokuapp.com'
+    'my-biosphere.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainApi.apps.MainapiConfig',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
