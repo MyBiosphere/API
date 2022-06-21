@@ -15,9 +15,13 @@ class PlantSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
+    # plant_name = serializers.CharField(source='plant.name')
+    plant_name = serializers.ReadOnlyField()
+    plant_id = serializers.ReadOnlyField()
+
     class Meta:
         model = Task
-        fields = ['id', 'name', 'description', 'user', 'plant', 'done']
+        fields = ['id', 'name', 'description', 'user', 'plant', 'done', 'plant_name', 'plant_id']
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):

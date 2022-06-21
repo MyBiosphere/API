@@ -61,6 +61,14 @@ class Task(models.Model):
         on_delete=models.CASCADE
     )
 
+    @property
+    def plant_name(self):
+        return self.plant.name
+
+    @property
+    def plant_id(self):
+        return self.plant.id
+
 
 class SensorsBox(models.Model):
     user = models.ForeignKey(
