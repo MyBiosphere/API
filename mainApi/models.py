@@ -4,17 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
-
-class Task(models.Model):
-    name = models.CharField(max_length=120)
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE
-    )
-    description = models.TextField()
-    done = models.BooleanField(default=False)
-
-
 class Sickness(models.Model):
     name = models.CharField(max_length=60)
     description = models.TextField()
@@ -55,6 +44,22 @@ class Plant(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Task(models.Model):
+    name = models.CharField(max_length=120)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    description = models.TextField()
+    done = models.BooleanField(default=False)
+    plant = models.ForeignKey(
+        Plant,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE
+    )
 
 
 class SensorsBox(models.Model):

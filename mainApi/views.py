@@ -45,21 +45,21 @@ class PlantViewSet(viewsets.ModelViewSet):
 
 
 class TaskViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-    # def get_queryset(self):
-    #     plant_id = self.request.query_params.get('plant_id')
-    #     # get specific plant
-    #     if plant_id:
-    #         res = self.queryset.filter(id=plant_id)
-    #     # retrieve user plant lit
-    #     else:
-    #         res = self.queryset.filter(user=self.request.user)
-    #     # return result
-    #     return res
+    def get_queryset(self):
+        plant_id = self.request.query_params.get('task_id')
+        # get specific plant
+        if plant_id:
+            res = self.queryset.filter(id=plant_id)
+        # retrieve user plant lit
+        else:
+            res = self.queryset.filter(user=self.request.user)
+        # return result
+        return res
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
