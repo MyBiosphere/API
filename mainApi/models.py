@@ -11,10 +11,26 @@ class Sickness(models.Model):
 
 class Plant(models.Model):
     STATUS = (
-        ('healthy', 'This plant is healthy'),
-        ('sick', 'This plant is sick'),
-        ('dry', 'This plant is dry'),
-        ('drown', 'This plant is drown'),
+        ('healthy', 'Cette plante est en bonne santée.'),
+        ('sick', 'Cette plante est malade.'),
+        ('dry', 'Cette plante est asséchée.'),
+        ('drown', 'Cette plante est trop arrosée.'),
+    )
+
+    ROOM = (
+        ('living', 'Salon'),
+        ('bedroom', 'Chambre'),
+        ('kitchen', 'Cuisine'),
+        ('study', 'Bureau'),
+        ('bathroom', 'Salle de bain'),
+        ('balcony', 'Balcon'),
+        ('terrace', 'Terrasse'),
+    )
+
+    SUNSHINE = (
+        ('direct_sunlight', 'Lumière directe'),
+        ('indirect_sunlight', 'Lumière indirecte'),
+        ('shady', 'Ombragé'),
     )
 
     name = models.CharField(max_length=120)
@@ -25,22 +41,24 @@ class Plant(models.Model):
     description = models.TextField()
 
     status = models.CharField(
-        max_length=32,
+        max_length=120,
         choices=STATUS,
         default='Healthy',
     )
-    sickness = models.ForeignKey(
-        Sickness,
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL
+
+    room = models.CharField(
+        max_length=120,
+        choices=ROOM,
+        default='living',
     )
-    room = models.CharField(max_length=120, blank=True, null=True)
     watering = models.IntegerField(blank=True, null=True)
-    sunshine = models.IntegerField(blank=True, null=True)
+    sunshine = models.CharField(
+        max_length=120,
+        choices=SUNSHINE,
+        default='direct_sunlight',
+    )
     repot = models.IntegerField(blank=True, null=True)
-    blooming_time = models.IntegerField(blank=True, null=True)
-    blooming_duration = models.IntegerField(blank=True, null=True)
+    blooming_time = models.CharField(max_length=120, blank=True, null=True)\
 
     def __str__(self):
         return self.name

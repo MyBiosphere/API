@@ -11,7 +11,10 @@ from .models import Task
 class PlantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Plant
-        fields = ['id', 'name', 'description', 'user', 'room']
+        fields = ['id', 'name', 'description', 'room',
+                  'status', 'watering', 'sunshine', 'repot', 'blooming_time',
+                  'user'
+                  ]
 
 
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,7 +24,10 @@ class TaskSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Task
-        fields = ['id', 'name', 'description', 'user', 'plant', 'done', 'plant_name', 'plant_id']
+        fields = ['id', 'name', 'description', 'done',
+                  'user',
+                  'plant', 'plant_name', 'plant_id'
+                  ]
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
