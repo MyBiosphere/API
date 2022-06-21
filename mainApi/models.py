@@ -55,7 +55,7 @@ class Plant(models.Model):
     sunshine = models.CharField(
         max_length=120,
         choices=SUNSHINE,
-        default='direct_sunlight',
+        default='directSunlight',
     )
     repot = models.IntegerField(blank=True, null=True)
     blooming_time = models.CharField(max_length=120, blank=True, null=True)\
