@@ -44,18 +44,21 @@ class Plant(models.Model):
         max_length=120,
         choices=STATUS,
         default='Healthy',
+        null=True
     )
 
     room = models.CharField(
         max_length=120,
         choices=ROOM,
         default='living',
+        null=True
     )
     watering = models.IntegerField(blank=True, null=True)
     sunshine = models.CharField(
         max_length=120,
         choices=SUNSHINE,
         default='directSunlight',
+        null=True
     )
     repot = models.IntegerField(blank=True, null=True)
     blooming_time = models.CharField(max_length=120, blank=True, null=True)\
