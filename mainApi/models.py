@@ -18,13 +18,13 @@ class Plant(models.Model):
     )
 
     ROOM = (
-        ('living', 'Salon'),
-        ('bedroom', 'Chambre'),
-        ('kitchen', 'Cuisine'),
-        ('study', 'Bureau'),
-        ('bathroom', 'Salle de bain'),
-        ('balcony', 'Balcon'),
-        ('terrace', 'Terrasse'),
+        ('Salon', 'Salon'),
+        ('Chambre', 'Chambre'),
+        ('Cuisine', 'Cuisine'),
+        ('Bureau', 'Bureau'),
+        ('Salle de bain', 'Salle de bain'),
+        ('Balcon', 'Balcon'),
+        ('Terrasse', 'Terrasse'),
     )
 
     SUNSHINE = (
