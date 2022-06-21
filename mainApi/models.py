@@ -28,8 +28,8 @@ class Plant(models.Model):
     )
 
     SUNSHINE = (
-        ('direct-sunlight', 'Lumière directe'),
-        ('indirect-sunlight', 'Lumière indirecte'),
+        ('directSunlight', 'Lumière directe'),
+        ('indirectSunlight', 'Lumière indirecte'),
         ('shady', 'Ombragé'),
     )
 
