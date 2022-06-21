@@ -5,12 +5,19 @@ from .models import Profile
 from .models import User
 from .models import HouseMetrics
 from .models import SensorsBox
+from .models import Task
 
 
 class PlantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Plant
         fields = ['id', 'name', 'description', 'user', 'room']
+
+
+class TaskSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['id', 'name', 'description', 'user', 'done']
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):

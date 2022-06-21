@@ -10,6 +10,9 @@ from rest_framework import permissions
 from .serialisers import PlantSerializer
 from .models import Plant
 
+from .serialisers import TaskSerializer
+from .models import Task
+
 from .serialisers import ProfileSerializer
 from .models import Profile
 
@@ -39,6 +42,24 @@ class PlantViewSet(viewsets.ModelViewSet):
             res = self.queryset.filter(user=self.request.user)
         # return result
         return res
+
+
+class TaskViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+    # def get_queryset(self):
+    #     plant_id = self.request.query_params.get('plant_id')
+    #     # get specific plant
+    #     if plant_id:
+    #         res = self.queryset.filter(id=plant_id)
+    #     # retrieve user plant lit
+    #     else:
+    #         res = self.queryset.filter(user=self.request.user)
+    #     # return result
+    #     return res
 
 
 class ProfileViewSet(viewsets.ModelViewSet):

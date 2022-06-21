@@ -5,6 +5,16 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 
+class Task(models.Model):
+    name = models.CharField(max_length=120)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    description = models.TextField()
+    done = models.BooleanField(default=False)
+
+
 class Sickness(models.Model):
     name = models.CharField(max_length=60)
     description = models.TextField()

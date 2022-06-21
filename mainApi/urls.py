@@ -6,6 +6,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'plants', views.PlantViewSet)
+router.register(r'plants', views.TaskViewSet)
 router.register(r'profiles', views.ProfileViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'metrics', views.MetricsViewSet)
