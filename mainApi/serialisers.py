@@ -17,7 +17,7 @@ class PlantSerializer(serializers.HyperlinkedModelSerializer):
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'name', 'description', 'user', 'done']
+        fields = ['id', 'name', 'description', 'user', 'plant', 'done']
 
 
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
