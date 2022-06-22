@@ -11,10 +11,10 @@ class Sickness(models.Model):
 
 class Plant(models.Model):
     STATUS = (
-        ('healthy', 'Cette plante est en bonne santée.'),
-        ('sick', 'Cette plante est malade.'),
-        ('dry', 'Cette plante est asséchée.'),
-        ('drown', 'Cette plante est trop arrosée.'),
+        ('Saine', 'Cette plante est en bonne santée.'),
+        ('Malade', 'Cette plante est malade.'),
+        ('Assoifée', 'Cette plante est asséchée.'),
+        ('Trop humide', 'Cette plante est trop arrosée.'),
     )
 
     ROOM = (
@@ -28,9 +28,9 @@ class Plant(models.Model):
     )
 
     SUNSHINE = (
-        ('directSunlight', 'Lumière directe'),
-        ('indirectSunlight', 'Lumière indirecte'),
-        ('shady', 'Ombragé'),
+        ('Directe', 'Lumière directe'),
+        ('Indirecte', 'Lumière indirecte'),
+        ('Ombragé', 'Ombragé'),
     )
 
     name = models.CharField(max_length=120)
