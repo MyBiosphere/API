@@ -53,14 +53,14 @@ class Plant(models.Model):
         default='living',
         null=True
     )
-    watering = models.IntegerField(blank=True, null=True)
+    watering = models.CharField(max_length=120,blank=True, null=True)
     sunshine = models.CharField(
         max_length=120,
         choices=SUNSHINE,
         default='directSunlight',
         null=True
     )
-    repot = models.IntegerField(blank=True, null=True)
+    repot = models.CharField(max_length=120,blank=True, null=True)
     blooming_time = models.CharField(max_length=120, blank=True, null=True)\
 
     picture = models.ImageField(upload_to='plants', blank=True, null=True)
