@@ -63,6 +63,8 @@ class Plant(models.Model):
     repot = models.IntegerField(blank=True, null=True)
     blooming_time = models.CharField(max_length=120, blank=True, null=True)\
 
+    picture = models.ImageField(upload_to='plants', blank=True, null=True)
+
     def __str__(self):
         return self.name
 

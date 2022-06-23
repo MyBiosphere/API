@@ -12,7 +12,7 @@ class PlantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Plant
         fields = ['id', 'name', 'description', 'room',
-                  'status', 'watering', 'sunshine', 'repot', 'blooming_time',
+                  'status', 'watering', 'sunshine', 'repot', 'blooming_time', 'picture',
                   'user'
                   ]
 

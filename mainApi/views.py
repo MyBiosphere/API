@@ -27,8 +27,8 @@ from .models import SensorsBox
 
 
 class PlantViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
     queryset = Plant.objects.all()
     serializer_class = PlantSerializer
 
