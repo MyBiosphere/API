@@ -45,7 +45,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class MetricsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = HouseMetrics
-        fields = ('id', 'date', 'soil_humidity', 'fine_particle', 'co2', 'temperature', 'humidity')
+        fields = ('id', 'box_id', 'date', 'soil_humidity', 'fine_particle', 'co2', 'temperature', 'humidity')
 
 
 class SensorsBoxSerializer(serializers.HyperlinkedModelSerializer):

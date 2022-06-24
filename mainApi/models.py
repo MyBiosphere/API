@@ -102,11 +102,7 @@ class SensorsBox(models.Model):
 
 
 class HouseMetrics(models.Model):
-    # box = models.ForeignKey(
-    #     SensorsBox,
-    #     on_delete=models.CASCADE
-    # )
-
+    box_id = models.CharField(max_length=120, blank=True, null=True)
     date = models.CharField(max_length=120, blank=True, null=True)
     soil_humidity = models.CharField(max_length=120, blank=True, null=True)
     co2 = models.CharField(max_length=120, blank=True, null=True)
