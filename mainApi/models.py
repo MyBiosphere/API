@@ -102,13 +102,17 @@ class SensorsBox(models.Model):
 
 
 class HouseMetrics(models.Model):
-    box = models.ForeignKey(
-        SensorsBox,
-        on_delete=models.CASCADE
-    )
-    co2 = models.IntegerField(blank=True, null=True)
-    temperature = models.IntegerField(blank=True, null=True)
-    humidity = models.IntegerField(blank=True, null=True)
+    # box = models.ForeignKey(
+    #     SensorsBox,
+    #     on_delete=models.CASCADE
+    # )
+
+    date = models.CharField(max_length=120, blank=True, null=True)
+    soil_humidity = models.CharField(max_length=120, blank=True, null=True)
+    co2 = models.CharField(max_length=120, blank=True, null=True)
+    fine_particle = models.CharField(max_length=120, blank=True, null=True)
+    temperature = models.CharField(max_length=120, blank=True, null=True)
+    humidity = models.CharField(max_length=120, blank=True, null=True)
 
 
 class Profile(models.Model):

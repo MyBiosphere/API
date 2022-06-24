@@ -73,6 +73,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class MetricsViewSet(viewsets.ModelViewSet):
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
     queryset = HouseMetrics.objects.all()
     serializer_class = MetricsSerializer
 
