@@ -77,7 +77,7 @@ class Task(models.Model):
     )
     description = models.TextField()
     done = models.BooleanField(default=False)
-    plantRelqted = models.BooleanField(default=False)
+    plant_related = models.BooleanField(default=False)
     plant = models.ForeignKey(
         Plant,
         blank=True,
