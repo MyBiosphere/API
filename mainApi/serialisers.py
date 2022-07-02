@@ -26,7 +26,8 @@ class TaskSerializer(serializers.HyperlinkedModelSerializer):
         model = Task
         fields = ['id', 'name', 'description', 'done',
                   'user',
-                  'plant_related', 'plant', 'plant_name', 'plant_id'
+                  'plant_related', 'plant', 'plant_name', 'plant_id',
+                  'sensor'
                   ]
 
 
