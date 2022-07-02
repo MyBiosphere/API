@@ -47,6 +47,7 @@ class PlantViewSet(viewsets.ModelViewSet):
 class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
+    http_method_names = ['get', 'put', 'patch', 'head', 'options', 'trace', 'delete', ]
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
