@@ -84,6 +84,7 @@ class Task(models.Model):
         null=True,
         on_delete=models.CASCADE
     )
+    sensor = models.CharField(max_length=120, blank=True, null=True)
 
     @property
     def plant_name(self):
