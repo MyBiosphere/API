@@ -77,7 +77,7 @@ class MetricsViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
     # queryset = HouseMetrics.objects.all().order_by('date').reverse()[:1]
-    queryset = HouseMetrics.objects.all().order_by('date')
+    queryset = HouseMetrics.objects.all().order_by('date').reverse()["1"]
     serializer_class = MetricsSerializer
 
 
